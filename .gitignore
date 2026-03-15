@@ -1,0 +1,114 @@
+# -----------------------------
+
+# Python
+
+# -----------------------------
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+
+.Python
+build/
+dist/
+downloads/
+.eggs/
+*.egg-info/
+*.egg
+
+# -----------------------------
+
+# Virtual environments
+
+# -----------------------------
+
+venv/
+.env/
+.env.*
+.venv/
+env/
+ENV/
+
+# -----------------------------
+
+# Pytest
+
+# -----------------------------
+
+.pytest_cache/
+.cache/
+
+# -----------------------------
+
+# Playwright
+
+# -----------------------------
+
+playwright-report/
+test-results/
+trace.zip
+trace/
+videos/
+screenshots/
+
+# -----------------------------
+
+# Logs
+
+# -----------------------------
+
+*.log
+logs/
+
+# -----------------------------
+
+# IDE / Editor
+
+# -----------------------------
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -----------------------------
+
+# OS files
+
+# -----------------------------
+
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+
+# Coverage
+
+# -----------------------------
+
+.coverage
+coverage.xml
+htmlcov/
+
+# -----------------------------
+
+# Environment variables
+
+# -----------------------------
+
+.env
+.env.local
+.env.*.local
+
+# -----------------------------
+
+# Misc
+
+# -----------------------------
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
