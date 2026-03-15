@@ -13,10 +13,6 @@ jobs:
       options: --user 1001
     steps:
       - uses: actions/checkout@v5
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.13'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
