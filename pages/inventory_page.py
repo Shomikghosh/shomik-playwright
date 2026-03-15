@@ -11,6 +11,8 @@ class InventoryPage:
         self.product_item_price_selector = page.locator('[data-test="inventory-item-price"]')
         self.product_item_add_to_cart = page.get_by_role("button",name="Add to cart")
 
+        self.product_filter_selector = page.locator('[data-test="product-sort-container"]')
+
     def login_to_inventory(self,page):
         login = LoginPage(page)
         login.navigate()
