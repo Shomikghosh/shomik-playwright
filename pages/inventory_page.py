@@ -1,6 +1,10 @@
 from playwright.sync_api import  expect
 from pages.login_page import LoginPage
+import json
 
+with open("test_data/products.json") as f:
+    products_data = json.load(f)
+    
 class InventoryPage:
 
     def __init__(self,page):
@@ -20,3 +24,11 @@ class InventoryPage:
         login.login('standard_user','secret_sauce')
 
         login.validate_success()
+
+    def filter_assertion(self,sort_type):
+
+        for (i) in range(6):
+            expect(self.product_name_selector.nth(i)).to_contain_text(products_data[sort_type][i]['name'])
+            expect(self.product_description_selector.nth(i)).to_contain_text(products_data[sort_type][i]['description'])
+            expect(self.product_item_price_selector.nth(i)).to_contain_text(products_data[sort_type][i]['price'])
+            expect(self.product_item_add_to_cart.nth(i)).to_contain_text("Add to cart")

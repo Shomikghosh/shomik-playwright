@@ -28,11 +28,7 @@ def test_sort_a_to_z_sort(page: Page):
     inventoryPage = InventoryPage(page)
     inventoryPage.login_to_inventory(page)
 
-    for (i) in range(6):
-            expect(inventoryPage.product_name_selector.nth(i)).to_contain_text(products_data['az'][i]['name'])
-            expect(inventoryPage.product_description_selector.nth(i)).to_contain_text(products_data['az'][i]['description'])
-            expect(inventoryPage.product_item_price_selector.nth(i)).to_contain_text(products_data['az'][i]['price'])
-            expect(inventoryPage.product_item_add_to_cart.nth(i)).to_contain_text("Add to cart")
+    inventoryPage.filter_assertion('az')
 
 def test_sort_z_to_a_sort(page: Page):
 
@@ -41,9 +37,24 @@ def test_sort_z_to_a_sort(page: Page):
 
     inventoryPage.product_filter_selector.select_option('Name (Z to A)')
 
+    inventoryPage.filter_assertion('za')
 
-    for (i) in range(6):
-            expect(inventoryPage.product_name_selector.nth(i)).to_contain_text(products_data['za'][i]['name'])
-            expect(inventoryPage.product_description_selector.nth(i)).to_contain_text(products_data['za'][i]['description'])
-            expect(inventoryPage.product_item_price_selector.nth(i)).to_contain_text(products_data['za'][i]['price'])
-            expect(inventoryPage.product_item_add_to_cart.nth(i)).to_contain_text("Add to cart")
+
+def test_sort_low_to_high_sort(page: Page):
+
+    inventoryPage = InventoryPage(page)
+    inventoryPage.login_to_inventory(page)
+
+    inventoryPage.product_filter_selector.select_option('Price (low to high)')
+
+    inventoryPage.filter_assertion('lohi')
+
+
+def test_sort_high_to_low_sort(page: Page):
+
+    inventoryPage = InventoryPage(page)
+    inventoryPage.login_to_inventory(page)
+
+    inventoryPage.product_filter_selector.select_option('Price (high to low)')
+    
+    inventoryPage.filter_assertion('hilo')
